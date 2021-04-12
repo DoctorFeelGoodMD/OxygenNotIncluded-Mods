@@ -7,3 +7,5 @@ This includes algae, slime, and polluted dirt turning to dirt, dirt turning to s
 Liquid and gas transitions are unaffected.
 
 Items in storage bins get dropped onto the floor when they transition, I am not yet smart enough to figure out how to prevent this behavior, though maybe I will revisit later. However, bins no longer get entombed like in vanilla.
+
+Not compatible with DLC yet.

@@ -10,4 +10,4 @@ Items in storage bins get dropped onto the floor when they transition, I am not 
 
 Not compatible with DLC.
 
-TO install, put DebrisMeltsToDebris.dll in Documents/Klei/OxygenNotIncluded/mods/Local
+To install, unzip DebrisMeltsToDebris.dll in Documents/Klei/OxygenNotIncluded/mods/Local

@@ -8,7 +8,6 @@ Mods/UnityEngine.*.dll
 *.CopyComplete
 *.cache
 *.pdb
-*.zip
 !TemplateMod.zip
 Source/**/obj
 Source/**/bin

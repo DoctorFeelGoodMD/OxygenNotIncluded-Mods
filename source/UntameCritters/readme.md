@@ -1,19 +1,20 @@
-This mod allows tame critters to become wild again (sort of)
+This mod allows populations of critters to be untamed.
 
-The mechanism is simple: starving critters lay wild eggs, which hatch into wild critters.
+The mechanism is simple: Tame critters, when starving, will lay wild eggs which will hatch into wild critters.
 
-I guess it's kind of a misleading title, huh? You don't untame the critter but you can untame the ranch.
+Tame critters themselves will not untame on their own, it is the next generation that will be untamed. I guess the title is kind of misleading, huh?
 
-After some thought about what may be the best way to implement untaming critters without upsetting game balance, this is what I settled on. An 'untame' button would be pretty easy to abuse to keep your ranches alive forever with no inputs or labor, and untaming stations or tasks would have the same issue and be difficult to implement (as fun as it would be to put critters into the skill scrubber) You can already spawn wild critters in sandbox mode so this is intended for normal gameplay.
+After some thought about the best way to implement untaming, this is what I settled on as the most balanced for normal gameplay. An 'untame' button would pretty easily negate most of intended challenges of keeping tame animals, and untaming stations or chores would have the same issues plus be hard to implement (though I do admit it would be fun to put critters in the skill scrubber)
 
 Implications are:
-- Critters turned loose from your ranch to the wildnerness will have their spawn revert to wild, assuming they have enough lifespan to lay an egg.
-- Ranches left to starve will eventually have their population revert to wild, though eggs laid before the critters begin to starve will still be tame.
-- If critters are being groomed, they will be automatically re-tamed, so it will have little effect on your overall operation assuming your ranch gets any attention at all.
-- Pacu will be hard to keep tame given their inputs, though wild pacu are still quite productive. Taming will be really only useful to increase the population.
+- Tame critters released into the wilderness will eventually have their spawn revert to wild, assuming they can live long enough to lay an egg.
+- Ranches left to starve will eventually have all their critters revert to wild. However, if critters lay eggs before they run out of stored calories, those eggs will still be tame.
+- If ranches are kept groomed but not fed, wild critters will be automatically re-tamed by your duplicants, so it will have little impact on normal operations assuming this upkeep is done.
+- Some critters like pacu will be hard to keep tame due to dietary demands. If you can't feed them, you will have to make do with keeping them as wild critters and taming them again when necessary for increased production or eggs.
+- Greatly reduced animal cruelty.
 
-Should be compatible with DLC. Please post any bugs, or ideas for how to better implement untaming.
+Should work with base and DLC.
 
-Someday, I'll pick up the steam version on sale and put this on the workship.
+One of these days I'll get the steam version on sale, and can put the mod on the workshop.
 
-To install, unzip in Documents/Klei/OxygenNotIncluded/mods/Local
+Until then, download the zip and unzip into Documents/Klei/OxygenNotIncluded/Local

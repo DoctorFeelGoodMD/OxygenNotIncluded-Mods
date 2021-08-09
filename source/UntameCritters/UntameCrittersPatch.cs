@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Harmony;
+using HarmonyLib;
 
 
 namespace UntameCritters
 {
-	public class UntameCrittersPatches
+	public class UntameCrittersPatches : KMod.UserMod2
 	{
-		public static class Mod_OnLoad
+		/*public static class Mod_OnLoad
 		{
 			public static void OnLoad()
 			{
 				Debug.Log("UntameCritters mod loaded");
 			}
-		}
-
+		}*/ 
+		// I don't have the patience to deal with this all this new code right now
 
 
 		[HarmonyPatch(typeof(LayEggStates), "ShowEgg")]

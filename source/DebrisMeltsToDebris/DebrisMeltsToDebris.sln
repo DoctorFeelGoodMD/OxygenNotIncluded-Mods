@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebrisMeltsToDebris", "DebrisMeltsToDebris.csproj", "{FF6D0B36-26E2-4E4B-AE16-EB731DE0A9FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF6D0B36-26E2-4E4B-AE16-EB731DE0A9FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF6D0B36-26E2-4E4B-AE16-EB731DE0A9FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF6D0B36-26E2-4E4B-AE16-EB731DE0A9FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF6D0B36-26E2-4E4B-AE16-EB731DE0A9FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93AB86B1-A32B-44AA-AC05-BA1CE765FA17}
+	EndGlobalSection
+EndGlobal

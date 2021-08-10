@@ -1,4 +1,4 @@
-Elements which convert into other solids when heated will have its debris turn directly into the corresponding debris item, rather than convert from debris into a full tile.
+This mod prevents debris items from turning into full solid tiles when heated to melting point, if it will transition into another solid. Instead, it will turn into another debris item for the appropriate element. 
 
 This is to prevent sometimes-undesirable behavior of small items transforming into solid tiles when heated to their transition point, clogging automation and resulting in 50% mass loss when the tile is mined.
 

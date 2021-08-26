@@ -36,12 +36,13 @@ namespace DebrisMeltsToDebris
                     if (gameObject.GetComponent<Pickupable>() != null) 
                     {
                         PopFXManager.Instance.SpawnFX(PopFXManager.Instance.sprite_Resource, Mathf.RoundToInt(primaryElement.Mass) + " " + newElement.name, gameObject.transform);
+                        value.OnDestroy();
+                        Util.KDestroyGameObject(value.gameObject);
+                        return false;
                     }   // spawns a resource the same way one does when you mine it (WorldDamage.OnDigComplete)
 
                 }
-                value.OnDestroy();
-                Util.KDestroyGameObject(value.gameObject);
-                return false;
+
             }
             return true;
         }

@@ -1,0 +1,3 @@
+title: Refuel Turned-Off Generators
+description: Duplicants will manually refuel coal and wood generators, even when they are turned off by the automation system.
+staticID: RefuelTurnedOffGenerators

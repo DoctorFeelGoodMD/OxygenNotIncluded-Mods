@@ -45,14 +45,16 @@ namespace MoveThisHere
 			{
 				//this clumsy patch overrites the 'sandstone 500/1kg' on the hover text card when building hauling points.
 				//checks the buildingdef in the hovercard, since it's public, rather than buildtool itself
-				//could work also by just checking for unique build mass 1kg, but this is more future proof
-
-				public static string Postfix(string __result)
+				//also checks to make sure that it's exactly 1kg mass - draggable items (wires, pipes etc) otherwise cause errors since they use a drag tool not build tool
+				public static string Postfix(string __result, Recipe ___currentRecipe)
 				{
-					if(BuildTool.Instance.GetComponent<BuildToolHoverTextCard>().currentDef.name == "HaulingPoint")
-                    {
-						__result = "No resources required";
-                    }
+					if (___currentRecipe.Ingredients[0].amount == 1f)
+					{
+						if (BuildTool.Instance.GetComponent<BuildToolHoverTextCard>().currentDef.name == "HaulingPoint")
+						{
+							__result = "No resources required";
+						}
+					}
 					return __result;
 				}
 			}

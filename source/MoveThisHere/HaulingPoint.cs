@@ -63,15 +63,18 @@ namespace MoveThisHere
 		}
 		public void SetSliderValue(float value, int index)
 		{
-			if (value > 100f)
-            {
-				value = (float)Math.Round((decimal)value);
-				//will round off decimals above 100kg to avoid weird 5g bits when slider is moved instead of typed number
-				//if you really want 200.15kg, use two hauling points
-            }
-			storage.capacityKg = value;
-			userMaxCapacity = value; //set both local and Storage variable, local variable gets kept on save/load
-			filteredStorage.FilterChanged();
+			if (value != userMaxCapacity) //setslidervalue runs each time slider appears AND if changed - check if actually changed to avoid unncessary job interruptions
+			{
+				if (value > 100f)
+				{
+					value = (float)Math.Round((decimal)value);
+					//will round off decimals above 100kg to avoid weird 5g bits when slider is moved instead of typed number
+					//if you really want 200.15kg, use two hauling points
+				}
+				storage.capacityKg = value;
+				userMaxCapacity = value; //set both local and Storage variable, local variable gets kept on save/load
+				filteredStorage.FilterChanged();
+			}
 		}
 		public int SliderDecimalPlaces(int index)
 		{
@@ -107,7 +110,7 @@ namespace MoveThisHere
 		{
 			//initialize comes first, then spawn
 			base.OnPrefabInit();
-			
+
 			ChoreType fetch_chore_type = Db.Get().ChoreTypes.Get(choreTypeID);
 
 			forbidden_tags = (allowManualPumpingStationFetching ? new Tag[0] : new Tag[1] { GameTags.LiquidSource });
@@ -116,21 +119,23 @@ namespace MoveThisHere
 			//replacing capacity_control slider in filteredstorage - leave it null and do the logic for it here
 			//forbidden tags contains either nothing or pump stations. have to make own copy of filteredstorage just to keep this private field updated
 
-			if (userMaxCapacity >= totalMaxCapacity)
-			{
-				userMaxCapacity = totalMaxCapacity;
-			}
-			storage.capacityKg = userMaxCapacity; //set this up since capacitykg isn't serialized, I'm sure there is an easier way but whatever
-
 			Subscribe(-905833192, OnCopySettingsDelegate);
 			Subscribe(493375141, OnRefreshUserMenuDelegate);
 
-			
+
 		}
 
 		protected override void OnSpawn()
 		{
 			base.OnSpawn();
+
+			if (userMaxCapacity >= totalMaxCapacity)
+			{
+				userMaxCapacity = totalMaxCapacity;
+			}
+			storage.capacityKg = userMaxCapacity; //set this up since capacitykg isn't serialized, I'm sure there is an easier way but whatever
+			//must read serialized variables during onspawn, not initialize, I guess they are not unserialized until now.
+
 			filteredStorage.FilterChanged();
 
 		}

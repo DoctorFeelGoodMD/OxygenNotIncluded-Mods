@@ -115,7 +115,7 @@ namespace MoveThisHere
 
 			forbidden_tags = (allowManualPumpingStationFetching ? new Tag[0] : new Tag[1] { GameTags.LiquidSource });
 
-			filteredStorage = new FilteredStorageHaulingPoint(this, null, forbidden_tags, null, use_logic_meter, fetch_chore_type);
+			filteredStorage = new FilteredStorageHaulingPoint(this, forbidden_tags, null, use_logic_meter, fetch_chore_type);
 			//replacing capacity_control slider in filteredstorage - leave it null and do the logic for it here
 			//forbidden tags contains either nothing or pump stations. have to make own copy of filteredstorage just to keep this private field updated
 
@@ -314,7 +314,7 @@ namespace MoveThisHere
 
 		private MeterController logicMeter;
 
-		private Tag[] requiredTags;
+		//private Tag[] requiredTags;
 
 		private Tag[] forbiddenTags;
 
@@ -329,10 +329,9 @@ namespace MoveThisHere
 			hasMeter = has_meter;
 		}
 
-		public FilteredStorageHaulingPoint(KMonoBehaviour root, Tag[] required_tags, Tag[] forbidden_tags, IUserControlledCapacity capacity_control, bool use_logic_meter, ChoreType fetch_chore_type)
+		public FilteredStorageHaulingPoint(KMonoBehaviour root, Tag[] forbidden_tags, IUserControlledCapacity capacity_control, bool use_logic_meter, ChoreType fetch_chore_type)
 		{
 			this.root = root;
-			requiredTags = required_tags;
 			forbiddenTags = forbidden_tags;
 			capacityControl = capacity_control;
 			useLogicMeter = use_logic_meter;
@@ -341,7 +340,7 @@ namespace MoveThisHere
 			root.Subscribe(-543130682, OnUserSettingsChanged);
 			filterable = root.FindOrAdd<TreeFilterable>();
 			TreeFilterable treeFilterable = filterable;
-			treeFilterable.OnFilterChanged = (Action<Tag[]>)Delegate.Combine(treeFilterable.OnFilterChanged, new Action<Tag[]>(OnFilterChanged));
+			treeFilterable.OnFilterChanged = (Action<HashSet<Tag>>)Delegate.Combine(treeFilterable.OnFilterChanged, new Action<HashSet<Tag>>(OnFilterChanged));
 			storage = root.GetComponent<Storage>();
 			storage.Subscribe(644822890, OnOnlyFetchMarkedItemsSettingChanged);
 			storage.Subscribe(-1852328367, OnFunctionalChanged);
@@ -373,7 +372,7 @@ namespace MoveThisHere
 			if (filterable != null)
 			{
 				TreeFilterable treeFilterable = filterable;
-				treeFilterable.OnFilterChanged = (Action<Tag[]>)Delegate.Remove(treeFilterable.OnFilterChanged, new Action<Tag[]>(OnFilterChanged));
+				treeFilterable.OnFilterChanged = (Action<HashSet<Tag>>)Delegate.Remove(treeFilterable.OnFilterChanged, new Action<HashSet<Tag>>(OnFilterChanged));
 			}
 			if (fetchList != null)
 			{
@@ -486,11 +485,13 @@ namespace MoveThisHere
 		public void SetForbiddenTags(Tag[] forbidden_tags)
         {
 			forbiddenTags = forbidden_tags; //wouldn't need this whole class except for that
+			//and actually, after the update 10/4 which added new public methods to modify forbidden tags, may well be entirely unnecessary
+			//but... if it ain't broke, I'm not fixing it
         }
 
-		private void OnFilterChanged(Tag[] tags)
+		private void OnFilterChanged(HashSet<Tag> tags)
 		{
-			bool flag = tags != null && tags.Length != 0;
+			bool flag = tags != null && tags.Count != 0;
 			if (fetchList != null)
 			{
 				fetchList.Cancel("");
@@ -504,7 +505,7 @@ namespace MoveThisHere
 				num = Mathf.Max(0f, GetMaxCapacity() - amountStored);
 				fetchList = new FetchList2(storage, choreType);
 				fetchList.ShowStatusItem = false;
-				fetchList.Add(tags, requiredTags, forbiddenTags, num, FetchOrder2.OperationalRequirement.Functional);
+				fetchList.Add(tags, forbiddenTags, num, Operational.State.Functional);
 				fetchList.Submit(OnFetchComplete, check_storage_contents: false);
 			}
 		}
@@ -516,6 +517,29 @@ namespace MoveThisHere
 				logicMeter.SetPositionPercent(on ? 1f : 0f);
 			}
 		}
+		/*public void AddForbiddenTag(Tag forbidden_tag)
+		{
+			if (forbiddenTags == null)
+			{
+				forbiddenTags = new Tag[0];
+			}
+			if (!forbiddenTags.Contains(forbidden_tag))
+			{
+				forbiddenTags = forbiddenTags.Append(forbidden_tag);
+				OnFilterChanged(filterable.GetTags());
+			}
+		}
+
+		public void RemoveForbiddenTag(Tag forbidden_tag)
+		{
+			if (forbiddenTags != null)
+			{
+				List<Tag> list = new List<Tag>(forbiddenTags);
+				list.Remove(forbidden_tag);
+				forbiddenTags = list.ToArray();
+				OnFilterChanged(filterable.GetTags());
+			}
+		}*/
 	}
 
 

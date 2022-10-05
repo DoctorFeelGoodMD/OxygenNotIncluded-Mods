@@ -16,18 +16,20 @@ namespace Refuel_Turned_off_Generators
             static void Postfix(GameObject go, Tag prefab_tag)
             {
                 ManualDeliveryKG manualDeliveryKG = go.GetComponent<ManualDeliveryKG>();
-                manualDeliveryKG.operationalRequirement = FetchOrder2.OperationalRequirement.None; //I'll just change this to 'none', should be fine right?
+                manualDeliveryKG.operationalRequirement = Operational.State.None;
             }
         }
-
+    
+   
         [HarmonyPatch(typeof(WoodGasGeneratorConfig), "DoPostConfigureComplete")]
         public static class RefuelTurnedOffWoodGenerators_Patch
         {
             static void Postfix(GameObject go)
             {
                 ManualDeliveryKG manualDeliveryKG = go.GetComponent<ManualDeliveryKG>();
-                manualDeliveryKG.operationalRequirement = FetchOrder2.OperationalRequirement.None;
+                manualDeliveryKG.operationalRequirement = Operational.State.None;
             }
         }
     }
+
 }

@@ -134,8 +134,10 @@ namespace MoveThisHere
 				userMaxCapacity = totalMaxCapacity;
 			}
 			storage.capacityKg = userMaxCapacity; //set this up since capacitykg isn't serialized, I'm sure there is an easier way but whatever
-			//must read serialized variables during onspawn, not initialize, I guess they are not unserialized until now.
+												  //must read serialized variables during onspawn, not initialize, I guess they are not unserialized until now.
 
+			forbidden_tags = (allowManualPumpingStationFetching ? new Tag[0] : new Tag[1] { GameTags.LiquidSource });
+			filteredStorage.SetForbiddenTags(forbidden_tags);
 			filteredStorage.FilterChanged();
 
 		}

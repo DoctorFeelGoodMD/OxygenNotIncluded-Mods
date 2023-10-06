@@ -52,7 +52,7 @@ namespace MoveThisHere
 			return userMaxCapacity;
 		}
 
-		public string GetSliderTooltip()
+		public string GetSliderTooltip(int index)
 		{
 			return "Maximum mass to bring to this Hauling Point";//string.Format(Strings.Get(GetSliderTooltipKey(0)), userMaxCapacity);
 		}

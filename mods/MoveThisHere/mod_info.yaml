@@ -1,4 +1,4 @@
 supportedContent: ALL
-minimumSupportedBuild: 525812
+minimumSupportedBuild: 596100
 APIVersion: 2
-version: "1.5"
+version: "1.6"

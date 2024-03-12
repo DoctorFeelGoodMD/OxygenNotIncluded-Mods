@@ -66,7 +66,8 @@ namespace MoveThisHere
 			go.AddOrGet<HaulingPoint>().totalMaxCapacity = 20000f;
 			go.AddOrGetDef<RocketUsageRestriction.Def>(); //I wish I had the DLC, somebody post an issue if whatever this is doesn't work
 			Object.Destroy(go.AddOrGet<Reconstructable>()); //remove vanilla reconstructable, can't make out of anything but vacuum (bc made with no resources)
-				//also, if deconstructed with vanilla deconstructible will crash because 1kg of vacuum is physically impossible
+			Object.Destroy(go.AddOrGet<Deconstructable>());
+			//also, if deconstructed with vanilla deconstructible will crash because 1kg of vacuum is physically impossible
 			go.AddOrGet<DeconstructableHaulingPoint>();
 			 
 

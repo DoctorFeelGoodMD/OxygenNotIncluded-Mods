@@ -29,7 +29,7 @@ namespace MoveThisHere
 
 		private Tag[] forbidden_tags;
 
-		public float totalMaxCapacity; 
+		public float totalMaxCapacity;
 		//create new float for total max capacity and now using public capacitykg in Storage to hold user capacity which used to be the max
 		//this is a clumsy workaround to use a custom slider to hold user capacity, rather than default iusercontrolledcapacity which is null
 		//all because I can't get IUserControlledCapacity to allow decimal values, and I know you nerds are gonna wanna store 35g or something
@@ -57,7 +57,7 @@ namespace MoveThisHere
 			return "Maximum mass to bring to this Hauling Point";//string.Format(Strings.Get(GetSliderTooltipKey(0)), userMaxCapacity);
 		}
 
-		public string GetSliderTooltipKey(int index)
+        public string GetSliderTooltipKey(int index)
 		{
 			return "";
 		}
@@ -89,7 +89,7 @@ namespace MoveThisHere
 		{
 			Initialize(use_logic_meter: false);
 		}
-		
+
 
 		protected FilteredStorageHaulingPoint filteredStorage;
 
@@ -190,21 +190,26 @@ namespace MoveThisHere
 
 		private void OnRefreshUserMenu(object data)
 		{
-			KIconButtonMenu.ButtonInfo button2 = (allowManualPumpingStationFetching ? new KIconButtonMenu.ButtonInfo("action_bottler_delivery", UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.DENIED.NAME, OnChangeAllowManualPumpingStationFetching, Action.NumActions, null, null, null, UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.DENIED.TOOLTIP) : new KIconButtonMenu.ButtonInfo("action_bottler_delivery", UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.ALLOWED.NAME, OnChangeAllowManualPumpingStationFetching, Action.NumActions, null, null, null, UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.ALLOWED.TOOLTIP));
+			KIconButtonMenu.ButtonInfo button2 = (allowManualPumpingStationFetching ?
+				new KIconButtonMenu.ButtonInfo("action_bottler_delivery", UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.DENIED.NAME, OnChangeAllowManualPumpingStationFetching, Action.NumActions, null, null, null, UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.DENIED.TOOLTIP) :
+				new KIconButtonMenu.ButtonInfo("action_bottler_delivery", UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.ALLOWED.NAME, OnChangeAllowManualPumpingStationFetching, Action.NumActions, null, null, null, UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.ALLOWED.TOOLTIP));
 			Game.Instance.userMenu.AddButton(base.gameObject, button2, 0.4f);
 
-			KIconButtonMenu.ButtonInfo button = (willSelfDestruct ? new KIconButtonMenu.ButtonInfo("action_empty_contents", HaulingPointConfig.SelfDestructButtonCancelText, ToggleWillSelfDestruct, Action.NumActions, null, null, null, HaulingPointConfig.SelfDestructButtonCancelTooltip) : new KIconButtonMenu.ButtonInfo("action_empty_contents", HaulingPointConfig.SelfDestructButtonText, ToggleWillSelfDestruct, Action.NumActions, null, null, null, HaulingPointConfig.SelfDestructButtonTooltip));
+			KIconButtonMenu.ButtonInfo button = (willSelfDestruct ?
+				new KIconButtonMenu.ButtonInfo("action_empty_contents", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_OFF, ToggleWillSelfDestruct, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_OFF_TOOLTIP) :
+				new KIconButtonMenu.ButtonInfo("action_empty_contents", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_ON, ToggleWillSelfDestruct, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_ON_TOOLTIP));
 			Game.Instance.userMenu.AddButton(base.gameObject, button);
 
-			KIconButtonMenu.ButtonInfo button3 = (willSpill ? new KIconButtonMenu.ButtonInfo("action_bottler_delivery", HaulingPointConfig.SpillButtonCancelText, OnChangeWillSpill, Action.NumActions, null, null, null, HaulingPointConfig.SpillButtonCancelTooltip) : new KIconButtonMenu.ButtonInfo("action_bottler_delivery", HaulingPointConfig.SpillButtonText, OnChangeWillSpill, Action.NumActions, null, null, null, HaulingPointConfig.SpillButtonTooltip));
+			KIconButtonMenu.ButtonInfo button3 = (willSpill ?
+				new KIconButtonMenu.ButtonInfo("action_bottler_delivery", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_OFF, OnChangeWillSpill, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_OFF_TOOLTIP) :
+				new KIconButtonMenu.ButtonInfo("action_bottler_delivery", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_ON, OnChangeWillSpill, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_ON_TOOLTIP));
 			Game.Instance.userMenu.AddButton(base.gameObject, button3);
-
 		}
 
 		public void Sim1000ms(float dt)
 		{
-			if (willSelfDestruct) 
-			{ 
+			if (willSelfDestruct)
+			{
 				if ((AmountStored / userMaxCapacity) >= .99) //give a little wiggle for sublimination, stock margin doesn't work with low mass
 				{
 					GetComponentInParent<DeconstructableHaulingPoint>().OnDeconstruct();
@@ -256,10 +261,10 @@ namespace MoveThisHere
 			CellOffset[][] table = OffsetGroups.InvertedStandardTable;
 			CellOffset[] filter = null;
 			CellOffset[][] offsetTable = OffsetGroups.BuildReachabilityTable(placementOffsets, table, filter);
-			SetOffsetTable(offsetTable); 
+			SetOffsetTable(offsetTable);
 			//I really don't know what this celloffset stuff is about, too afraid to delete
 			//from original deconstructable class
-			
+
 
 		}
 		protected override void OnSpawn()
@@ -283,7 +288,13 @@ namespace MoveThisHere
 		{
 			if (!this.HasTag(GameTags.Stored))
 			{
-				KIconButtonMenu.ButtonInfo button = new KIconButtonMenu.ButtonInfo("action_deconstruct", HaulingPointConfig.DeconstructButtonText, OnDeconstruct, Action.NumActions, null, null, null, HaulingPointConfig.DeconstructButtonTooltip) ;//: new KIconButtonMenu.ButtonInfo("action_deconstruct", UI.USERMENUACTIONS.DECONSTRUCT.NAME_OFF, OnDeconstruct, Action.NumActions, null, null, null, UI.USERMENUACTIONS.DECONSTRUCT.TOOLTIP_OFF));
+				KIconButtonMenu.ButtonInfo button = new KIconButtonMenu.ButtonInfo(
+					"action_deconstruct",
+					STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.DECONSTRUCT,
+					OnDeconstruct,
+					Action.NumActions,
+					null, null, null,
+					STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.DECONSTRUCT_TOOLTIP);
 				Game.Instance.userMenu.AddButton(base.gameObject, button, 0f);
 				//add deconstruct button
 				//I thought about using cancel tool instead, but since it is made through build menu I thought this would be more intuivitive

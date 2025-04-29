@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
-using System;
 using HarmonyLib;
-using TUNING;
-using STRINGS;
 using KMod;
 using UnityEngine;
 using System.IO;
@@ -17,16 +14,14 @@ namespace MoveThisHere
             [HarmonyPatch(typeof(Localization), "Initialize")]
             public class Localization_Initialize_Patch
             {
-                private static string ModPath;
+                private static readonly string ModPath = GetModPath();
 
                 public static void Postfix()
                 {
-                    ModPath = GetModPath();
-
                     RegisterForTranslation(typeof(STRINGS));
+                    GenerateStringsTemplate(typeof(STRINGS), Path.Combine(Manager.GetDirectory(), "strings_templates"));
                     LoadStrings();
                     LocString.CreateLocStringKeys(typeof(STRINGS), null);
-                    GenerateStringsTemplate(typeof(STRINGS), Path.Combine(ModPath, "locales", "strings_templates"));
                 }
 
                 private static void LoadStrings()
@@ -111,12 +106,12 @@ namespace MoveThisHere
 
     public static class Utils
     {
-        public static void AddBuildingStrings(string buildingId, string name, string description, string effect)
-        {
-            Strings.Add($"STRINGS.BUILDINGS.PREFABS.{buildingId.ToUpperInvariant()}.NAME", UI.FormatAsLink(name, buildingId));
-            Strings.Add($"STRINGS.BUILDINGS.PREFABS.{buildingId.ToUpperInvariant()}.DESC", description);
-            Strings.Add($"STRINGS.BUILDINGS.PREFABS.{buildingId.ToUpperInvariant()}.EFFECT", effect);
-        }
+        //public static void AddBuildingStrings(string buildingId, string name, string description, string effect)
+        //{
+        //    Strings.Add($"STRINGS.BUILDINGS.PREFABS.{buildingId.ToUpperInvariant()}.NAME", UI.FormatAsLink(name, buildingId));
+        //    Strings.Add($"STRINGS.BUILDINGS.PREFABS.{buildingId.ToUpperInvariant()}.DESC", description);
+        //    Strings.Add($"STRINGS.BUILDINGS.PREFABS.{buildingId.ToUpperInvariant()}.EFFECT", effect);
+        //}
 
         public static void AddPlan(HashedString category, string subcategory, string idBuilding, string addAfter = null)
         {

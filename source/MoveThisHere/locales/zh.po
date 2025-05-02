@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Application: Oxygen Not IncludedPOT Version: 2.0\n"
+"X-Generator: Poedit 3.5\n"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.DECONSTRUCT
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.DECONSTRUCT"
+msgid "Remove"
+msgstr "移除"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.DECONSTRUCT_TOOLTIP
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.DECONSTRUCT_TOOLTIP"
+msgid "Remove this hauling point and drop all items here"
+msgstr "移除此搬运点并将所有物品丢在此处"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_OFF
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_OFF"
+msgid "Disable Auto-Drop"
+msgstr "禁用自动丢弃"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_OFF_TOOLTIP
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_OFF_TOOLTIP"
+msgid "Cancel automatic emptying when full"
+msgstr "取消存满后的自动清空"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_ON
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_ON"
+msgid "Enable Auto-Drop"
+msgstr "启用自动丢弃"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_ON_TOOLTIP
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_ON_TOOLTIP"
+msgid "When enabled, automatically remove hauling point and drop items when storage is full"
+msgstr "启用后，当存储满时，自动移除搬运点并丢弃物品"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_OFF
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_OFF"
+msgid "Disable Auto-Spill"
+msgstr "禁用自动倾倒"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_OFF_TOOLTIP
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_OFF_TOOLTIP"
+msgid "Drop bottles of liquids and gasses rather than spilling into the world"
+msgstr "移除搬运点时，将液体和气体以瓶装形式丢弃，而非直接倾倒到世界中"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_ON
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_ON"
+msgid "Enable Auto-Spill"
+msgstr "启用自动倾倒"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_ON_TOOLTIP
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_ON_TOOLTIP"
+msgid "When enabled, automatically spill liquids and gasses instead of dropping bottles when hauling point is removed"
+msgstr "启用后，移除搬运点时将自动倾倒液体和气体，而不是生成瓶装物"
+
+#. MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.DESC
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.DESC"
+msgid "Relocate selected items here, then deconstruct to drop them on the ground."
+msgstr "将选定的物品搬运到此处，然后拆除以将它们丢在地面上。"
+
+#. MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.EFFECT
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.EFFECT"
+msgid "A temporary designation to bring items to a specific place."
+msgstr "用于临时指定物品搬运到特定位置。"
+
+#. MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.NAME
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.NAME"
+msgid "<link=\"HAULINGPOINT\">Hauling Point</link>"
+msgstr "<link=\\\"HAULINGPOINT\\\">搬运点</link>"

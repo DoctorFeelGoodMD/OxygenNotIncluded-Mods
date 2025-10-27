@@ -38,9 +38,9 @@ namespace MoveThisHere
 
                     // Auto-Bottle
                     public static LocString AUTO_BOTTLE_ON = "Enable Auto-Bottle";
-                    public static LocString AUTO_BOTTLE_ON_TOOLTIP = "If enabled, Duplicants will deliver bottled liquids/gases to this hauling point.";
+                    public static LocString AUTO_BOTTLE_ON_TOOLTIP = "If enabled, Duplicants will bottle liquids and gases to deliver to this hauling point";
                     public static LocString AUTO_BOTTLE_OFF = "Disable Auto-Bottle";
-                    public static LocString AUTO_BOTTLE_OFF_TOOLTIP = "If disabled, Duplicants will no longer deliver bottled liquids/gases to this hauling point.";
+                    public static LocString AUTO_BOTTLE_OFF_TOOLTIP = "If disabled, Duplicants will no longer bottle liquids and gases to deliver to this hauling point";
                 }
             }
         }

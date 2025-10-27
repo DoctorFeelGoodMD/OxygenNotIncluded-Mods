@@ -12,3 +12,4 @@ Mods/UnityEngine.*.dll
 Source/**/obj
 Source/**/bin
 *.user
+.vs/

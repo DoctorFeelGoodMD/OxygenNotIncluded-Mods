@@ -113,7 +113,7 @@ namespace MoveThisHere
 
             ChoreType fetch_chore_type = Db.Get().ChoreTypes.Get(choreTypeID);
 
-            forbidden_tags = (allowManualPumpingStationFetching ? new Tag[0] : new Tag[1] { GameTags.LiquidSource });
+            forbidden_tags = (allowManualPumpingStationFetching ? new Tag[0] : new Tag[2] { GameTags.LiquidSource, GameTags.GasSource });
 
             filteredStorage = new FilteredStorageHaulingPoint(this, forbidden_tags, null, use_logic_meter, fetch_chore_type);
             //replacing capacity_control slider in filteredstorage - leave it null and do the logic for it here
@@ -121,7 +121,6 @@ namespace MoveThisHere
 
             Subscribe(-905833192, OnCopySettingsDelegate);
             Subscribe(493375141, OnRefreshUserMenuDelegate);
-
 
         }
 
@@ -136,7 +135,7 @@ namespace MoveThisHere
             storage.capacityKg = userMaxCapacity; //set this up since capacitykg isn't serialized, I'm sure there is an easier way but whatever
                                                   //must read serialized variables during onspawn, not initialize, I guess they are not unserialized until now.
 
-            forbidden_tags = (allowManualPumpingStationFetching ? new Tag[0] : new Tag[1] { GameTags.LiquidSource });
+            forbidden_tags = (allowManualPumpingStationFetching ? new Tag[0] : new Tag[2] { GameTags.LiquidSource, GameTags.GasSource });
             filteredStorage.SetForbiddenTags(forbidden_tags);
             filteredStorage.FilterChanged();
 
@@ -145,10 +144,9 @@ namespace MoveThisHere
         {
             allowManualPumpingStationFetching = !allowManualPumpingStationFetching;
 
-            forbidden_tags = (allowManualPumpingStationFetching ? new Tag[0] : new Tag[1] { GameTags.LiquidSource });
+            forbidden_tags = (allowManualPumpingStationFetching ? new Tag[0] : new Tag[2] { GameTags.LiquidSource, GameTags.GasSource });
             filteredStorage.SetForbiddenTags(forbidden_tags);
             filteredStorage.FilterChanged();
-
         }
         private void OnChangeWillSpill()
         {
@@ -190,20 +188,23 @@ namespace MoveThisHere
 
         private void OnRefreshUserMenu(object data)
         {
-            KIconButtonMenu.ButtonInfo button2 = (allowManualPumpingStationFetching ?
-                new KIconButtonMenu.ButtonInfo("action_bottler_delivery", UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.DENIED.NAME, OnChangeAllowManualPumpingStationFetching, Action.NumActions, null, null, null, UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.DENIED.TOOLTIP) :
-                new KIconButtonMenu.ButtonInfo("action_bottler_delivery", UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.ALLOWED.NAME, OnChangeAllowManualPumpingStationFetching, Action.NumActions, null, null, null, UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.ALLOWED.TOOLTIP));
-            Game.Instance.userMenu.AddButton(base.gameObject, button2, 0.4f);
+            //KIconButtonMenu.ButtonInfo button2 = (allowManualPumpingStationFetching ?
+            //    new KIconButtonMenu.ButtonInfo("action_bottler_delivery", UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.DENIED.NAME, OnChangeAllowManualPumpingStationFetching, Action.NumActions, null, null, null, UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.DENIED.TOOLTIP) :
+            //    new KIconButtonMenu.ButtonInfo("action_bottler_delivery", UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.ALLOWED.NAME, OnChangeAllowManualPumpingStationFetching, Action.NumActions, null, null, null, UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.ALLOWED.TOOLTIP));
+            KIconButtonMenu.ButtonInfo autoBottleButton = (allowManualPumpingStationFetching ?
+                new KIconButtonMenu.ButtonInfo("action_bottler_delivery", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_OFF, OnChangeAllowManualPumpingStationFetching, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_OFF_TOOLTIP) :
+                new KIconButtonMenu.ButtonInfo("action_bottler_delivery", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_ON, OnChangeAllowManualPumpingStationFetching, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_ON_TOOLTIP));
+            Game.Instance.userMenu.AddButton(base.gameObject, autoBottleButton, 0.4f);
 
-            KIconButtonMenu.ButtonInfo button = (willSelfDestruct ?
-                new KIconButtonMenu.ButtonInfo("action_empty_contents", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_OFF, ToggleWillSelfDestruct, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_OFF_TOOLTIP) :
-                new KIconButtonMenu.ButtonInfo("action_empty_contents", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_ON, ToggleWillSelfDestruct, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_ON_TOOLTIP));
-            Game.Instance.userMenu.AddButton(base.gameObject, button);
+            KIconButtonMenu.ButtonInfo autoDropButton = (willSelfDestruct ?
+                new KIconButtonMenu.ButtonInfo("action_empty_contents", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_OFF, ToggleWillSelfDestruct, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_OFF_TOOLTIP) :
+                new KIconButtonMenu.ButtonInfo("action_empty_contents", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_ON, ToggleWillSelfDestruct, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_ON_TOOLTIP));
+            Game.Instance.userMenu.AddButton(base.gameObject, autoDropButton);
 
-            KIconButtonMenu.ButtonInfo button3 = (willSpill ?
-                new KIconButtonMenu.ButtonInfo("action_bottler_delivery", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_OFF, OnChangeWillSpill, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_OFF_TOOLTIP) :
-                new KIconButtonMenu.ButtonInfo("action_bottler_delivery", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_ON, OnChangeWillSpill, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_ON_TOOLTIP));
-            Game.Instance.userMenu.AddButton(base.gameObject, button3);
+            KIconButtonMenu.ButtonInfo autoSpillButton = (willSpill ?
+                new KIconButtonMenu.ButtonInfo("action_bottler_delivery", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_OFF, OnChangeWillSpill, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_OFF_TOOLTIP) :
+                new KIconButtonMenu.ButtonInfo("action_bottler_delivery", STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_ON, OnChangeWillSpill, Action.NumActions, null, null, null, STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_ON_TOOLTIP));
+            Game.Instance.userMenu.AddButton(base.gameObject, autoSpillButton);
         }
 
         public void Sim1000ms(float dt)
@@ -290,11 +291,11 @@ namespace MoveThisHere
             {
                 KIconButtonMenu.ButtonInfo button = new KIconButtonMenu.ButtonInfo(
                     "action_deconstruct",
-                    STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.DECONSTRUCT,
+                    STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.REMOVE,
                     OnDeconstruct,
                     Action.NumActions,
                     null, null, null,
-                    STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.DECONSTRUCT_TOOLTIP);
+                    STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.REMOVE_TOOLTIP);
                 Game.Instance.userMenu.AddButton(base.gameObject, button, 0f);
                 //add deconstruct button
                 //I thought about using cancel tool instead, but since it is made through build menu I thought this would be more intuivitive

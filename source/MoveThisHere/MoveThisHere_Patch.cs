@@ -9,39 +9,38 @@ namespace MoveThisHere
 {
     public class MoveThisHere_Patch : UserMod2
     {
-        public static class MoveThisHerePatches
+
+        [HarmonyPatch(typeof(Localization), "Initialize")]
+        public class Localization_Initialize_Patch
         {
-            [HarmonyPatch(typeof(Localization), "Initialize")]
-            public class Localization_Initialize_Patch
+            private static readonly string ModPath = GetModPath();
+
+            public static void Postfix()
             {
-                private static readonly string ModPath = GetModPath();
+                RegisterForTranslation(typeof(STRINGS));
+                GenerateStringsTemplate(typeof(STRINGS), Path.Combine(Manager.GetDirectory(), "strings_templates"));
+                LoadStrings();
+                LocString.CreateLocStringKeys(typeof(STRINGS), null);
+            }
 
-                public static void Postfix()
-                {
-                    RegisterForTranslation(typeof(STRINGS));
-                    GenerateStringsTemplate(typeof(STRINGS), Path.Combine(Manager.GetDirectory(), "strings_templates"));
-                    LoadStrings();
-                    LocString.CreateLocStringKeys(typeof(STRINGS), null);
-                }
+            private static void LoadStrings()
+            {
+                string localeCode = GetLocale()?.Code;
+                if (string.IsNullOrEmpty(localeCode))
+                    return;
 
-                private static void LoadStrings()
-                {
-                    string localeCode = GetLocale()?.Code;
-                    if (string.IsNullOrEmpty(localeCode))
-                        return;
+                string path = Path.Combine(ModPath, "locales", localeCode + ".po");
+                if (File.Exists(path))
+                    OverloadStrings(LoadStringsFile(path, false));
+            }
 
-                    string path = Path.Combine(ModPath, "locales", localeCode + ".po");
-                    if (File.Exists(path))
-                        OverloadStrings(LoadStringsFile(path, false));
-                }
-
-                private static string GetModPath()
-                {
-                    var assembly = typeof(Localization_Initialize_Patch).Assembly;
-                    return Path.GetDirectoryName(assembly.Location);
-                }
+            private static string GetModPath()
+            {
+                var assembly = typeof(Localization_Initialize_Patch).Assembly;
+                return Path.GetDirectoryName(assembly.Location);
             }
         }
+        
 
         [HarmonyPatch(typeof(GeneratedBuildings))]
         [HarmonyPatch(nameof(GeneratedBuildings.LoadGeneratedBuildings))]

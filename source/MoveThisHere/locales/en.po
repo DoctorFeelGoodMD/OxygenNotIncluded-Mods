@@ -12,67 +12,111 @@ msgstr ""
 "Application: Oxygen Not IncludedPOT Version: 2.0\n"
 "X-Generator: Poedit 3.5\n"
 
-#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.DECONSTRUCT
-msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.DECONSTRUCT"
-msgid "Remove"
-msgstr ""
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_OFF
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_OFF"
+msgid "Disable Auto-Bottle"
+msgstr "Disable Auto-Bottle"
 
-#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.DECONSTRUCT_TOOLTIP
-msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.DECONSTRUCT_TOOLTIP"
-msgid "Remove this hauling point and drop all items here"
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_OFF_TOOLTIP
+msgctxt ""
+"MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_OFF_TOOLTIP"
+msgid ""
+"If disabled, Duplicants will no longer bottle liquids and gases to deliver "
+"to this hauling point"
 msgstr ""
+"If disabled, Duplicants will no longer bottle liquids and gases to deliver "
+"to this hauling point"
 
-#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_OFF
-msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_OFF"
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_ON
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_ON"
+msgid "Enable Auto-Bottle"
+msgstr "Enable Auto-Bottle"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_ON_TOOLTIP
+msgctxt ""
+"MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_ON_TOOLTIP"
+msgid ""
+"If enabled, Duplicants will bottle liquids and gases to deliver to this "
+"hauling point"
+msgstr ""
+"If enabled, Duplicants will bottle liquids and gases to deliver to this "
+"hauling point"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_OFF
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_OFF"
 msgid "Disable Auto-Drop"
-msgstr ""
+msgstr "Disable Auto-Drop"
 
-#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_OFF_TOOLTIP
-msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_OFF_TOOLTIP"
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_OFF_TOOLTIP
+msgctxt ""
+"MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_OFF_TOOLTIP"
 msgid "Cancel automatic emptying when full"
-msgstr ""
+msgstr "Cancel automatic emptying when full"
 
-#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_ON
-msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_ON"
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_ON
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_ON"
 msgid "Enable Auto-Drop"
-msgstr ""
+msgstr "Enable Auto-Drop"
 
-#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_ON_TOOLTIP
-msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SELF_DESTRUCT_ON_TOOLTIP"
-msgid "When enabled, automatically remove hauling point and drop items when storage is full"
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_ON_TOOLTIP
+msgctxt ""
+"MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_ON_TOOLTIP"
+msgid ""
+"If enabled, automatically remove hauling point and drop items when storage "
+"is full"
 msgstr ""
+"If enabled, automatically remove hauling point and drop items when storage "
+"is full"
 
-#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_OFF
-msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_OFF"
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_OFF
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_OFF"
 msgid "Disable Auto-Spill"
-msgstr ""
+msgstr "Disable Auto-Spill"
 
-#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_OFF_TOOLTIP
-msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_OFF_TOOLTIP"
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_OFF_TOOLTIP
+msgctxt ""
+"MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_OFF_TOOLTIP"
 msgid "Drop bottles of liquids and gasses rather than spilling into the world"
-msgstr ""
+msgstr "Drop bottles of liquids and gasses rather than spilling into the world"
 
-#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_ON
-msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_ON"
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_ON
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_ON"
 msgid "Enable Auto-Spill"
-msgstr ""
+msgstr "Enable Auto-Spill"
 
-#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_ON_TOOLTIP
-msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.SPILL_ON_TOOLTIP"
-msgid "When enabled, automatically spill liquids and gasses instead of dropping bottles when hauling point is removed"
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_ON_TOOLTIP
+msgctxt ""
+"MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_ON_TOOLTIP"
+msgid ""
+"If enabled, automatically spill liquids and gasses instead of dropping "
+"bottles when hauling point is removed"
 msgstr ""
+"If enabled, automatically spill liquids and gasses instead of dropping "
+"bottles when hauling point is removed"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.REMOVE
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.REMOVE"
+msgid "Remove"
+msgstr "Remove"
+
+#. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.REMOVE_TOOLTIP
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.REMOVE_TOOLTIP"
+msgid "Remove this hauling point and drop all items here"
+msgstr "Remove this hauling point and drop all items here"
 
 #. MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.DESC
 msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.DESC"
-msgid "Relocate selected items here, then deconstruct to drop them on the ground."
+msgid ""
+"Relocate selected items here, then deconstruct to drop them on the ground."
 msgstr ""
+"Relocate selected items here, then deconstruct to drop them on the ground."
 
 #. MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.EFFECT
 msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.EFFECT"
 msgid "A temporary designation to bring items to a specific place."
-msgstr ""
+msgstr "A temporary designation to bring items to a specific place."
 
 #. MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.NAME
 msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.NAME"
 msgid "<link=\"HAULINGPOINT\">Hauling Point</link>"
-msgstr ""
+msgstr "<link=\"HAULINGPOINT\">Hauling Point</link>"

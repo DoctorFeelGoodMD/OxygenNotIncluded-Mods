@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using STRINGS;
+using Newtonsoft.Json.Linq;
 
 namespace MoveThisHere
 {
@@ -184,9 +185,49 @@ namespace MoveThisHere
 
                 }
             }
-        }
+		}
+		public static JObject Blueprints_GetData(GameObject source)
+		{
+			if (source.TryGetComponent<HaulingPoint>(out var behavior))
+			{
+				return new JObject()
+				{
+					{ "userMaxCapacity", behavior.userMaxCapacity},
+					{ "willSelfDestruct", behavior.willSelfDestruct},
+					{ "willSpill", behavior.willSpill},
+					{ "allowManualPumpingStationFetching", behavior.allowManualPumpingStationFetching},
+				};
+			}
+			return null;
+		}
+		public static void Blueprints_SetData(GameObject target, JObject data)
+		{
+			if (target.TryGetComponent<HaulingPoint>(out var targetHaulingPoint))
+			{
+				var token_userMaxCapacity = data.GetValue("userMaxCapacity");
+				var token_allowManualPumpingStationFetching = data.GetValue("allowManualPumpingStationFetching");
+				var token_willSelfDestruct = data.GetValue("willSelfDestruct");
+				var token_willSpill = data.GetValue("willSpill");
+				if (token_userMaxCapacity == null || token_willSelfDestruct == null || token_willSpill == null || token_allowManualPumpingStationFetching == null)
+					return;
+                float userMaxCapacity = token_userMaxCapacity.Value<float>();
+                bool willSelfDestruct = token_willSelfDestruct.Value<bool>();;
+                bool willSpill = token_willSpill.Value<bool>();
+                bool allowManualPumpingStationFetching = token_allowManualPumpingStationFetching.Value<bool>();
+				
+                targetHaulingPoint.userMaxCapacity = userMaxCapacity;
+				targetHaulingPoint.storage.capacityKg = userMaxCapacity;
+				targetHaulingPoint.willSelfDestruct = willSelfDestruct;
+				targetHaulingPoint.willSpill = willSpill;
+				targetHaulingPoint.allowManualPumpingStationFetching = allowManualPumpingStationFetching;
+                Tag[] forbidden_tags = (allowManualPumpingStationFetching ? new Tag[0] : new Tag[1] { GameTags.LiquidSource });   
+				targetHaulingPoint.forbidden_tags = forbidden_tags;
+				targetHaulingPoint.filteredStorage.SetForbiddenTags(forbidden_tags);
+				targetHaulingPoint.filteredStorage.FilterChanged();
+			}
+		}
 
-        private void OnRefreshUserMenu(object data)
+		private void OnRefreshUserMenu(object data)
         {
             //KIconButtonMenu.ButtonInfo button2 = (allowManualPumpingStationFetching ?
             //    new KIconButtonMenu.ButtonInfo("action_bottler_delivery", UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.DENIED.NAME, OnChangeAllowManualPumpingStationFetching, Action.NumActions, null, null, null, UI.USERMENUACTIONS.MANUAL_PUMP_DELIVERY.DENIED.TOOLTIP) :

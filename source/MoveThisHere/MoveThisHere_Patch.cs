@@ -88,16 +88,15 @@ namespace MoveThisHere
         {
             public static bool Prefix(Vector3 pos, Orientation orientation, IList<Tag> selected_elements, int layer, BuildingDef __instance, ref GameObject __result)
             {
-                BuildingDef def = __instance;
-                if (__instance.name != "HaulingPoint")
+                if (__instance.PrefabID != HaulingPointConfig.Id)
                 {
                     return true;
                 }
                 else
                 {
                     selected_elements[0] = TagManager.Create("Vacuum");
-                    __instance.Build(Grid.PosToCell(pos), orientation, null, selected_elements, 293.15f, playsound: false, GameClock.Instance.GetTime());
-                    return false;
+					__result = __instance.Build(Grid.PosToCell(pos), orientation, null, selected_elements, 293.15f, playsound: false, GameClock.Instance.GetTime());
+					return false;
                 }
             }
         }

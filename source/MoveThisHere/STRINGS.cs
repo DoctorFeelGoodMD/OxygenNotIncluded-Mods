@@ -13,6 +13,9 @@ namespace MoveThisHere
                     public static LocString NAME = FormatAsLink("Hauling Point", HaulingPointConfig.Id);
                     public static LocString DESC = "Relocate selected items here, then deconstruct to drop them on the ground.";
                     public static LocString EFFECT = "A temporary designation to bring items to a specific place.";
+					public static LocString SLIDER_TITLE = "Maximum Capacity";
+					public static LocString SLIDER_TOOLTIP = "Maximum mass to bring to this Hauling Point";
+					public static LocString NO_RESOURCES_REQUIRED = "No resources required";
                 }
             }
 

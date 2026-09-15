@@ -35,7 +35,7 @@ namespace MoveThisHere
         //this is a clumsy workaround to use a custom slider to hold user capacity, rather than default iusercontrolledcapacity which is null
         //all because I can't get IUserControlledCapacity to allow decimal values, and I know you nerds are gonna wanna store 35g or something
 
-        public string SliderTitleKey => "Maximum Capacity";
+        public string SliderTitleKey => STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.SLIDER_TITLE;
 
         public string SliderUnits => GameUtil.GetCurrentMassUnit();
         public float GetSliderMax(int index)
@@ -53,10 +53,7 @@ namespace MoveThisHere
             return userMaxCapacity;
         }
 
-        public string GetSliderTooltip(int index)
-        {
-            return "Maximum mass to bring to this Hauling Point";//string.Format(Strings.Get(GetSliderTooltipKey(0)), userMaxCapacity);
-        }
+        public string GetSliderTooltip(int index) => STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.SLIDER_TOOLTIP;
 
         public string GetSliderTooltipKey(int index)
         {

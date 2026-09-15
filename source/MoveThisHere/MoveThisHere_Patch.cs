@@ -75,7 +75,7 @@ namespace MoveThisHere
                 {
                     if (BuildTool.Instance.GetComponent<BuildToolHoverTextCard>().currentDef.name == "HaulingPoint")
                     {
-                        __result = "No resources required";
+                        __result = STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.NO_RESOURCES_REQUIRED;
                     }
                 }
                 return __result;

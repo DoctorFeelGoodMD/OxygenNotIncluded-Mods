@@ -108,6 +108,21 @@ msgid "A temporary designation to bring items to a specific place."
 msgstr "一个用于临时指定物品搬运到的特定位置。"
 
 #. MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.NAME
+// msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.NAME"
+// msgid "<link=\"HAULINGPOINT\">Hauling Point</link>"
+// msgstr "<link=\"HAULINGPOINT\">搬运点</link>"
 msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.NAME"
 msgid "<link=\"HAULINGPOINT\">Hauling Point</link>"
-msgstr "<link=\"HAULINGPOINT\">搬运点</link>"
+msgstr "<link=\"HAULINGPOINT\">纸板箱</link>"
+
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.SLIDER_TITLE"
+msgid "Maximum Capacity"
+msgstr "最大容量"
+
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.SLIDER_TOOLTIP"
+msgid "Maximum mass to bring to this Hauling Point"
+msgstr "板纸箱容量"
+
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.NO_RESOURCES_REQUIRED"
+msgid "No resources required"
+msgstr "无需资源"

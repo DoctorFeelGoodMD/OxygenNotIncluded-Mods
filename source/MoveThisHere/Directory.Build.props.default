@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Instead of modifying this file, create a copy named Directory.Build.props.user and modify it to match the paths in your installation -->
+<Project>
+  <PropertyGroup>
+    <!--Gamedata Folder, adjust to your own ONI installation-->
+    <GameLibsFolder>E:\Steam\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed</GameLibsFolder>
+    <GameLibsFolder Condition="!Exists('$(GameLibsFolder)')">/mnt/Intel_Pestflatte/SteamLibrary/steamapps/common/OxygenNotIncluded/OxygenNotIncluded_Data/Managed</GameLibsFolder>
+
+    <!-- 自动获取“我的文档”路径 -->
+    <DocumentsFolderRegistry>$(Registry:HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders@Personal)</DocumentsFolderRegistry>
+    <DocumentsFolderDefault>$(UserProfile)\Documents</DocumentsFolderDefault>
+
+    <!-- 开发用 mods 目录，自动指向 文档\Klei\OxygenNotIncluded\mods\dev -->
+    <DevModsFolder>Klei\OxygenNotIncluded\mods\dev</DevModsFolder>
+    <ModFolder>$(DocumentsFolderDefault)\$(DevModsFolder)</ModFolder>
+  </PropertyGroup>
+
+  <!-- 如果注册表中有“我的文档”路径，则覆盖 ModFolder -->
+  <PropertyGroup Condition=" '$(DocumentsFolderRegistry)' != '' ">
+    <ModFolder>$(DocumentsFolderRegistry)\$(DevModsFolder)</ModFolder>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!--Used to generate reference assemblies for GitHub CI; set this to 0 if you don't use automatic github builds and/or don't want to install Refasmer-->
+    <RefasmerInstalled>1</RefasmerInstalled>
+  </PropertyGroup>
+</Project>

@@ -65,6 +65,21 @@ namespace MoveThisHere
             }
         }
 
+        [HarmonyPatch(typeof(PlanScreen))]
+        [HarmonyPatch(nameof(PlanScreen.OnSelectBuilding))]
+        public static class PlanScreen_OnSelectBuilding_Patch
+        {
+            public static void Postfix(GameObject button_go, BuildingDef def, string facadeID)
+            {
+                if (def == null) return;
+                if (def.PrefabID != HaulingPointConfig.Id) return;
+                if (button_go == null) return;
+
+                var elements = new List<Tag> { SimHashes.Unobtanium.CreateTag() };
+                BuildTool.Instance.Activate(def, elements, facadeID);
+            }
+        }
+
         [HarmonyPatch(typeof(ResourceRemainingDisplayScreen))]
         [HarmonyPatch(nameof(ResourceRemainingDisplayScreen.GetString))]
         public static class ResourceRemainingDisplayScreen_Patch

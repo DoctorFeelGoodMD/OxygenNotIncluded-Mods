@@ -23,7 +23,7 @@ msgctxt ""
 msgid ""
 "If disabled, Duplicants will no longer deliver bottled liquids/gases to this "
 "hauling point."
-msgstr "若禁用，复制人将不再运送瓶装液体和气体到搬运点。"
+msgstr "若禁用，复制人将不再使用装瓶器灌装气液体到纸板箱。"
 
 #. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_ON
 msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_BOTTLE_ON"
@@ -36,12 +36,12 @@ msgctxt ""
 msgid ""
 "If enabled, Duplicants will deliver bottled liquids/gases to this hauling "
 "point."
-msgstr "若启用，复制人将运送瓶装液体和气体到搬运点。"
+msgstr "若启用，允许复制人使用装瓶器灌装气液体到到纸板箱。"
 
 #. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_OFF
 msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_OFF"
 msgid "Disable Auto-Drop"
-msgstr "禁用自动清空"
+msgstr "禁用自动拆除"
 
 #. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_OFF_TOOLTIP
 msgctxt ""
@@ -52,7 +52,7 @@ msgstr "若禁用，取消存满后的自动拆除"
 #. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_ON
 msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_ON"
 msgid "Enable Auto-Drop"
-msgstr "启用自动清空"
+msgstr "启用自动拆除"
 
 #. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_DROP_ON_TOOLTIP
 msgctxt ""
@@ -60,23 +60,23 @@ msgctxt ""
 msgid ""
 "If enabled, automatically remove hauling point and drop items when storage "
 "is full"
-msgstr "若启用，存储满时自动拆除搬运点并将资源放在地上"
+msgstr "若启用，存储满时自动拆除纸板箱释放资源"
 
 #. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_OFF
 msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_OFF"
 msgid "Disable Auto-Spill"
-msgstr "禁用自动倾倒"
+msgstr "拆除禁止倾倒"
 
 #. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_OFF_TOOLTIP
 msgctxt ""
 "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_OFF_TOOLTIP"
 msgid "Drop bottles of liquids and gasses rather than spilling into the world"
-msgstr "若禁用，拆除搬运点时液体和气体以瓶装形式丢弃"
+msgstr "拆除纸板箱释放资源时液体和气体以瓶装形式释放"
 
 #. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_ON
 msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_ON"
 msgid "Enable Auto-Spill"
-msgstr "启用自动倾倒"
+msgstr "拆除允许倾倒"
 
 #. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.AUTO_SPILL_ON_TOOLTIP
 msgctxt ""
@@ -84,7 +84,7 @@ msgctxt ""
 msgid ""
 "If enabled, automatically spill liquids and gasses instead of dropping "
 "bottles when hauling point is removed"
-msgstr "若启用，拆除搬运点时将自动倾倒瓶装液体和气体"
+msgstr "拆除纸板箱时将自动倾倒瓶装液体和气体"
 
 #. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.REMOVE
 msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.REMOVE"
@@ -94,7 +94,7 @@ msgstr "拆除"
 #. MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.REMOVE_TOOLTIP
 msgctxt "MoveThisHere.STRINGS.BUILDINGS.BUTTONS.HAULINGPOINT.REMOVE_TOOLTIP"
 msgid "Remove this hauling point and drop all items here"
-msgstr "拆除此搬运点并把搬运点内的所有物品放在地上"
+msgstr "拆除此纸板箱并把纸板箱内的所有物品放在地上"
 
 #. MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.DESC
 msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.DESC"

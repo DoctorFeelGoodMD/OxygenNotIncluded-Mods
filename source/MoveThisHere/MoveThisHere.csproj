@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="HaulingPoint.cs" />
     <Compile Include="HaulingPointConfig.cs" />
+    <Compile Include="HaulingPointPlacementPatch.cs" />
     <Compile Include="MoveThisHere_Patch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="STRINGS.cs" />

@@ -62,12 +62,16 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>E:\Steam\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>E:\Steam\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HaulingPoint.cs" />
     <Compile Include="HaulingPointConfig.cs" />
     <Compile Include="MoveThisHere_Patch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SliderSetPatches.cs" />
     <Compile Include="STRINGS.cs" />
   </ItemGroup>
   <ItemGroup>

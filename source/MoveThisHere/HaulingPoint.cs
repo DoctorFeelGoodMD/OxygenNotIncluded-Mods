@@ -139,8 +139,52 @@ namespace MoveThisHere
             forbidden_tags = (allowManualPumpingStationFetching ? new Tag[0] : new Tag[2] { GameTags.LiquidSource, GameTags.GasSource });
             filteredStorage.SetForbiddenTags(forbidden_tags);
             filteredStorage.FilterChanged();
-
+			
+			AssignUniqueName();
         }
+		
+		private static readonly string BaseName = UI.StripLinkFormatting(STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.NAME);
+
+		private void AssignUniqueName()
+		{
+			var userNamed = GetComponent<UserNameable>();
+			if (userNamed == null) return;
+
+			string saved = userNamed.savedName;
+			bool shouldNumber = string.IsNullOrEmpty(saved) || saved == BaseName;
+			if (!shouldNumber) return;
+
+			int maxIndex = 0;
+			int cell = Grid.PosToCell(this);
+
+			var all = UnityEngine.Object.FindObjectsOfType<HaulingPoint>();
+			foreach (var other in all)
+			{
+				if (other == null) continue;
+				if (other == this) continue;
+				if (Grid.PosToCell(other) != cell) continue;
+
+				var otherNamed = other.GetComponent<UserNameable>();
+				if (otherNamed == null) continue;
+
+				int idx = ExtractIndex(otherNamed.savedName);
+				if (idx > maxIndex) maxIndex = idx;
+			}
+
+			userNamed.SetName($"{BaseName} #{maxIndex + 1}");
+		}
+
+		private static int ExtractIndex(string name)
+		{
+			if (string.IsNullOrEmpty(name)) return 0;
+			if (!name.StartsWith(BaseName)) return 0;
+
+			string suffix = name.Substring(BaseName.Length).Trim();
+			if (suffix.StartsWith("#")) suffix = suffix.Substring(1).Trim();
+
+			if (int.TryParse(suffix, out int n)) return n;
+			return 0;
+		}		
         private void OnChangeAllowManualPumpingStationFetching()
         {
             allowManualPumpingStationFetching = !allowManualPumpingStationFetching;

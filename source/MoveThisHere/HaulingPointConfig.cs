@@ -98,6 +98,7 @@ namespace MoveThisHere
         public override void DoPostConfigureComplete(GameObject go)
         {
             go.AddOrGetDef<StorageController.Def>();
+			go.AddOrGet<UserNameable>();
         }
     }
 }

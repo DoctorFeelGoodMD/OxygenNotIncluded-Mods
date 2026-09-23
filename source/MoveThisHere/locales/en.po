@@ -120,3 +120,15 @@ msgstr "A temporary designation to bring items to a specific place."
 msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.NAME"
 msgid "<link=\"HAULINGPOINT\">Hauling Point</link>"
 msgstr "<link=\"HAULINGPOINT\">Hauling Point</link>"
+
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.SLIDER_TITLE"
+msgid "Maximum Capacity"
+msgstr "Maximum Capacity"
+
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.SLIDER_TOOLTIP"
+msgid "Maximum mass to bring to this Hauling Point"
+msgstr "Maximum mass to bring to this Hauling Point"
+
+msgctxt "MoveThisHere.STRINGS.BUILDINGS.PREFABS.HAULINGPOINT.NO_RESOURCES_REQUIRED"
+msgid "No resources required"
+msgstr "No resources required"

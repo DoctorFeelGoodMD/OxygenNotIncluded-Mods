@@ -67,6 +67,17 @@ namespace MoveThisHere
 			// 35	FXFront	特效前层
 			// 36	FXFront2	特效前层 2
 			// 37	SceneMAX	最大值
+			
+            // 放到 MovePlacer 层，不占用 Building 层，
+            // 这样其他建筑放置时不会撞到 HaulingPoint。
+            // 同格 HaulingPoint 之间的重叠由
+            // BuildingDef_IsValidPlaceLocation_HaulingPoint_Patch 处理。
+            //
+            // Put on MovePlacer layer so it doesn't occupy the Building layer.
+            // Other buildings can then be placed on the same cell.
+            // Stacking HaulingPoints on the same cell is handled by
+            // BuildingDef_IsValidPlaceLocation_HaulingPoint_Patch.
+            obj.ObjectLayer = ObjectLayer.MovePlacer;
 
             return obj;
         }

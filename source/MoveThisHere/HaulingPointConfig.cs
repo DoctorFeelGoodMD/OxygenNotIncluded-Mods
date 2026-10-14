@@ -29,7 +29,55 @@ namespace MoveThisHere
             obj.Repairable = false;
             obj.Disinfectable = false;
             obj.Invincible = true; //nothing but the player can destroy the powerful haulingpoint
-
+			obj.SceneLayer = Grid.SceneLayer.Front; // 置于最前层 / Frontmost render layer
+			// -3	WorldSelection	世界选择
+			// -2	NoLayer	无层
+			// -1	Background	背景
+			// 1	Backwall	背景墙
+			// 2	Gas	气体
+			// 3	GasConduits	气管
+			// 4	GasConduitBridges	气管桥
+			// 5	LiquidConduits	液管
+			// 6	LiquidConduitBridges	液管桥
+			// 7	SolidConduits	固管
+			// 8	SolidConduitContents	固管内容物
+			// 9	SolidConduitBridges	固管桥
+			// 10	Wires	电线
+			// 11	WireBridges	电线桥
+			// 12	WireBridgesFront	电线桥前层
+			// 13	LogicWires	信号线
+			// 14	LogicGates	逻辑门
+			// 15	LogicGatesFront	逻辑门前层
+			// 16	InteriorWall	内墙
+			// 17	GasFront	气体前层
+			// 18	BuildingBack	建筑背面
+			// 20	Building	普通建筑（默认）
+			// 21	BuildingUse	建筑使用中
+			// 22	BuildingFront	建筑前层
+			// 23	TransferArm	传送臂
+			// 26	Ore	掉落物 / 物品
+			// 27	Creatures	生物
+			// 28	Move	移动中
+			// 29	Front	最前
+			// 30	GlassTile	玻璃砖
+			// 31	Liquid	液体
+			// 32	Ground	地面
+			// 33	TileMain	砖块主体
+			// 34	TileFront	砖块前层
+			// 35	FXFront	特效前层
+			// 36	FXFront2	特效前层 2
+			// 37	SceneMAX	最大值
+			
+            // 放到 MovePlacer 层，不占用 Building 层，
+            // 这样其他建筑放置时不会撞到 HaulingPoint。
+            // 同格 HaulingPoint 之间的重叠由
+            // BuildingDef_IsValidPlaceLocation_HaulingPoint_Patch 处理。
+            //
+            // Put on MovePlacer layer so it doesn't occupy the Building layer.
+            // Other buildings can then be placed on the same cell.
+            // Stacking HaulingPoints on the same cell is handled by
+            // BuildingDef_IsValidPlaceLocation_HaulingPoint_Patch.
+            obj.ObjectLayer = ObjectLayer.MovePlacer;
 
             return obj;
         }
@@ -61,6 +109,7 @@ namespace MoveThisHere
         public override void DoPostConfigureComplete(GameObject go)
         {
             go.AddOrGetDef<StorageController.Def>();
+			go.AddOrGet<UserNameable>();
         }
     }
 }
